@@ -122,4 +122,9 @@ even_number [c(3,1,4)]
 x <- c(0.5,NA,0.7)
 is.na(x)
 # O: [1] FALSE  TRUE FALSE
-
+sum(is.na(x))
+# O : [1] 1
+!is.na(x)
+# O : [1]  TRUE FALSE  TRUE
+sum(!is.na(x))
+# O : [1] 2
