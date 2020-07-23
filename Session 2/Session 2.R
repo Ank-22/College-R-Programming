@@ -63,3 +63,13 @@ length(z)
 # O:[1] 2
 str(z)
 # O:chr [1:2] "Ank" "it"
+
+z <- c(z, "Sinha")
+z
+# O: [1] "Ank"   "it"    "Sinha"
+Z <- c("22",z)
+Z
+# O: [1] "22"    "Ank"   "it"    "Sinha"
+
+length(z)
+nchar(z)
