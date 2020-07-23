@@ -19,3 +19,9 @@ In computer science, a data structure is a data organization, management, and st
 
 * 1 Dimension - List
 * 2 Dimension - Data Frame
+
+
+## Datatypes 
+* Logical Variable - True / False
+* Integer- eg :4L, 10L
+* Double(numeric)- 4(4.0), 10(10.0)
