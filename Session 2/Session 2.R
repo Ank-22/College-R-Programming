@@ -95,3 +95,13 @@ seq(10)
 seq(from = 1, to = 10, by=0.5) 
 # O:  [1]  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0  7.5  8.0
 #[16]  8.5  9.0  9.5 10.0
+seq(from = 1, to = 10, by=5)
+# O: [1] 1 6 
+seq(from = 1, to = 10, by=4)
+# O: [1] 1 5 9
+old_number <- seq(from = 1, to = 10, by=2)
+old_number
+# O: [1] 1 3 5 7 9
+even_number <- seq(from = 0, to = 10, by = 2)
+even_number
+# O: 0  2  4  6  8 10
