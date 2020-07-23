@@ -73,3 +73,21 @@ Z
 
 length(z)
 nchar(z)
+
+
+# Create Sequence from 1 to 10
+series <- 1:10
+series
+# O:[1]  1  2  3  4  5  6  7  8  9 10
+typeof(series)
+# O:[1] "integer"
+class(series)
+# O:[1] "integer"
+length(series)
+# O:[1] 10
+str(series)
+# O:int [1:10] 1 2 3 4 5 6 7 8 9 10
+
+
+seq(10)
+# O:  [1]  1  2  3  4  5  6  7  8  9 10
