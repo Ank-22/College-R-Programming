@@ -25,3 +25,8 @@ In computer science, a data structure is a data organization, management, and st
 * Logical Variable - True / False
 * Integer- eg :4L, 10L
 * Double(numeric)- 4(4.0), 10(10.0)
+
+
+## Missing Value
+
+Missing value are represented as NA for applicable, Logical value TRUE is stored internally as ```1``` in R and FALSE as ```0``` 
