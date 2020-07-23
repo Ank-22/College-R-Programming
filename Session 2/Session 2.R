@@ -47,5 +47,19 @@ class(y)
 length(y)
 # o:[1] "logical"
 str(y)
-# o:logi [1:5] TRUE FALSE TRUE FALSE TRUE
+# o:logi [1:5] TRUE FALSE TRUE FALSE TRU
 
+
+# Character Vector
+
+z <- c("Ank","it")
+z
+# O:[1] "Ank" "it" 
+typeof(z)
+# O:[1] "character"
+class(z)
+# O:[1] "character"
+length(z)
+# O:[1] 2
+str(z)
+# O:chr [1:2] "Ank" "it"
