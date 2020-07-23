@@ -140,3 +140,28 @@ anyNA(x2)
 # O: [1] TRUE
 sum(is.na(x2))
 # O: [1] 2
+
+1/0
+# O: [1] Inf
+0/1
+# O: [1] 0
+0/0
+# O: [1] NaN
+
+# Implicit Conversion
+X <- c(1.7,2.2,"a")
+X
+# O: [1] "1.7" "2.2" "a"
+str(X)
+# O: chr [1:3] "1.7" "2.2" "a"
+X1 <- c(TRUE,FALSE,2)
+X1
+# O: [1] 1 0 2
+str(X1)
+# O: num [1:3] 1 0 2
+X2 <- c(TRUE,FALSE,"A")
+X2
+# O: [1] "TRUE"  "FALSE" "A"
+str(X2)
+# O: chr [1:3] "TRUE" "FALSE" "A"
+
