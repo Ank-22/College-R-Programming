@@ -128,3 +128,15 @@ sum(is.na(x))
 # O : [1]  TRUE FALSE  TRUE
 sum(!is.na(x))
 # O : [1] 2
+anyNA(x)
+# O: [1] TRUE
+x1 <- c(TRUE,NA,TRUE,NA.NA)
+anyNA(x1)
+# O: [1] FALSE
+x2 <- c("GG",NA,"Wp",NA)
+is.na(x2)
+# O:[1] FALSE  TRUE FALSE  TRUE
+anyNA(x2)
+# O: [1] TRUE
+sum(is.na(x2))
+# O: [1] 2
