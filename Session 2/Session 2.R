@@ -117,5 +117,9 @@ even_number [2:5]
 even_number [c(3,1,4)]
 # O:[1] 4 0 6
 
+# Missing Value
 
+x <- c(0.5,NA,0.7)
+is.na(x)
+# O: [1] FALSE  TRUE FALSE
 
