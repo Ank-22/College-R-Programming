@@ -105,3 +105,17 @@ old_number
 even_number <- seq(from = 0, to = 10, by = 2)
 even_number
 # O: 0  2  4  6  8 10
+
+
+# Sub setting
+even_number[2]
+# O:[1] 2
+even_number[1:4]
+# O:[1] 0 2 4 6
+even_number [2:5]
+# O:[1] 2 4 6 8
+even_number [c(3,1,4)]
+# O:[1] 4 0 6
+
+
+
