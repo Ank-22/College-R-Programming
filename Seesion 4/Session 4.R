@@ -54,7 +54,7 @@ weight <- c(48,49,66,53,67,52,40)
 
 gender <-c("male","male","female","female","male","female","male")
 
-
+str(gender)
 
 input_df <- data.frame(height,weight,gender)
 
@@ -68,3 +68,52 @@ str(input_df)
 
 typeof(input_df)
 
+is.factor(input_df$gender)
+
+input_df$gender
+
+##  ------ generating factor levels using gl ------ #
+
+"
+When we have levles and we wanr ro create a factoe vectoe by repeating those levels
+those levle va;ues we use the functions gl(n,1,labes)
+n- number of levels
+l- how many level should be repeated
+"
+
+v <- gl(3,4, labels =c("Tampa","Settle","Boston"))
+v
+
+# ----------- DF ---------------- #
+
+"
+A data fram is a table or a two dimensional data strucute for colums and rows
+-- each colimn contains values of on variable
+-- each row is an obersvation containing one value of each variable
+
+Characteristice of data frame
+- column non empty
+- rows are uniqne 
+- data stoed in a data frame.
+- lenght of all colum is same 
+"
+
+emp.data <- data.frame(
+    emp_id = c(1:5),
+    emp_name = c("Rick","Ank","Sam","Tmartn","Dick"),
+    salary =c(623.3,515.2,611.0,729.0,843.25),
+    salary_data=as.Date(c("2012-01-01","2012-09-23","2014-11-25","2014-05-11","2015-03-27"))
+
+)
+
+emp.data
+
+str(emp.data)
+names(emp.data)
+head(emp.data)
+class(emp.data)
+typeof(emp.data)
+
+View(emp.data)
+
+summary(emp.data)
