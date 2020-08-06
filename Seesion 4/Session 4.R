@@ -38,3 +38,19 @@ new_order
 
 str(new_order)
 is.factor(new_order)
+
+levels(new_order)
+
+
+## ------ Data frame from vector ------ ##
+
+# Create Vectors and store in data frame.
+
+height <- c(132,151,162,139,166,147,122)
+str(height)
+typeof(height)
+
+weight <- c(48,49,66,53,67,52,40)
+
+gender <-c("male","male","female","female","male","female","male")
+
