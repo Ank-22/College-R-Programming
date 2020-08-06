@@ -147,3 +147,25 @@ obs2
 emp.data$dept <- c("IT","DevOps","DevOps","IT","HR")
 
 emp.data
+
+
+emp.ndata <- data.frame(
+
+    emp_id = c(6:8),
+    emp_name = c("Pink", "Sky","Dena"),
+    salary =c(623.3,515.2,611.0),
+    salary_data=as.Date(c("2012-09-23","2014-05-11","2015-03-27")),
+    dept = c("HR","Fin","Biss")
+)
+
+emp.ndata
+
+emp.data = rbind(emp.data,emp.ndata)
+
+View(emp.data)
+
+# "B:\Study\Academics\MIT College\4th Year\Sem 7\R programing\R-Prpgramming\Seesion 4\input.csv"
+
+# "B:/Study/Academics/MIT College/4th Year/Sem 7/R programing/R-Prpgramming/Seesion 4/input.csv"
+data <- read.csv("B:/Study/Academics/MIT College/4th Year/Sem 7/R programing/R-Prpgramming/Seesion 4/input.csv")
+data
