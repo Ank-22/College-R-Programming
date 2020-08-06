@@ -9,3 +9,4 @@ data
 is.factor(data)
 str(data)
 
+unique(data)
