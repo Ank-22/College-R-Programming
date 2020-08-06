@@ -7,3 +7,5 @@
 ``` factor([var name]) -> Converts in a facotr ```
 
 ``` as.factor([var name]) -> Converts in a facotr ```
+
+``` levels([var name]) -> tells about the level ofs facotr ```

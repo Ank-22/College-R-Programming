@@ -20,3 +20,6 @@ factor_2
 
 is.factor(factor_data)
 is.factor(factor_2)
+
+
+levels(factor_data)
