@@ -117,3 +117,18 @@ typeof(emp.data)
 View(emp.data)
 
 summary(emp.data)
+
+# ------------- Extracting data from data frame ------------- #
+
+# Extract specific columns using $
+
+# Extract emp_name and emp_salary into another data frame
+
+
+Emp_Sal <- data.frame(emp.data$emp_name, emp.data$salary)
+Emp_Sal
+str(Emp_Sal)
+
+
+obs1_2 <-emp.data[1:2,]
+obs1_2
