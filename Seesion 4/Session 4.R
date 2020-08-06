@@ -135,3 +135,15 @@ obs1_2
 # Selecting by passing vector
 obs <- emp.data[c(1,3),]
 obs
+
+obs2 <- emp.data[c(3,5),c(2,4)]
+obs2
+
+
+# ----- Modifying data frame
+
+# --- Expand a data frame by adding colummns and rows
+
+emp.data$dept <- c("IT","DevOps","DevOps","IT","HR")
+
+emp.data
