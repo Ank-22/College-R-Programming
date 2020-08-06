@@ -54,3 +54,17 @@ weight <- c(48,49,66,53,67,52,40)
 
 gender <-c("male","male","female","female","male","female","male")
 
+
+
+input_df <- data.frame(height,weight,gender)
+
+input_df
+
+head(input_df)
+names(input_df)
+tail(input_df)
+
+str(input_df)
+
+typeof(input_df)
+
