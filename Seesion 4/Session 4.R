@@ -129,6 +129,9 @@ Emp_Sal <- data.frame(emp.data$emp_name, emp.data$salary)
 Emp_Sal
 str(Emp_Sal)
 
-
+# Range
 obs1_2 <-emp.data[1:2,]
 obs1_2
+# Selecting by passing vector
+obs <- emp.data[c(1,3),]
+obs
