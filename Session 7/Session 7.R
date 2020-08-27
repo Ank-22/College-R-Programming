@@ -205,4 +205,22 @@ temp1
 
 "
 
+2. Print out a summary of temp1 with the following variables (in this order):
+
+variable earliest as the minimum arrival delay,
+(hint: earliest = min(ArrDelay))
+
+variable average as the average arrival delay,
+
+variable latest as the longest arrival delay,
+
+variable sd as the standard deviation for arrival delays.
+
 "
+temp1 %>%
+    summarise(earliest = min(ArrDelay),
+    average=mean(ArrDelay),
+    latest=max(ArrDelay),
+    sd=sd(ArrDelay))
+
+    
