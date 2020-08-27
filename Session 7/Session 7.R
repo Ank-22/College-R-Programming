@@ -184,3 +184,25 @@ str(hflights$Diverted)
 hflights %>%
     filter(Diverted==1) %>%
     summarise(max_dist=max(Distance))
+
+"
+max_dist
+1     3904
+"
+
+
+#----------- Exercise
+
+"
+1. Remove row that have NA's in the arrival delay column and save the resulting data to temp1
+"
+
+temp1 <- hflights %>%
+        filter(!is.na(ArrDelay))
+
+
+temp1
+
+"
+
+"
