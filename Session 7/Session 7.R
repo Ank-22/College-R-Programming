@@ -149,5 +149,38 @@ diff(range(x)) - total range of vector x
 # Get the Shortest distance flown and the lomgest distance flown in hflights dataset
 
 names(hflights)
+str(hflights$AirTime)
+str(hflights$Distance)
 
 "Distance:distance of flight, in miles"
+
+h1=hflights %>%
+        summarise(min_dist=min(Distance),max_dist=max(Distance))
+
+h1
+
+h2=hflights %>%
+        mutate(min_dist=min(Distance),max_dist=max(Distance))
+
+h2
+
+
+
+"
+Differance between mutate and summarise
+- mutate creates new variables for entire dataset, one value for each row
+-summarise creates a new dataset, with one value for each group
+"
+
+# Get the longest distance for diverted flights
+
+"
+Diverted: Diverted indicator : 1= YEs, 0=No
+"
+
+str(hflights$Diverted)
+
+
+hflights %>%
+    filter(Diverted==1) %>%
+    summarise(max_dist=max(Distance))
