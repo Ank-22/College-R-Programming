@@ -201,7 +201,18 @@ temp1 <- hflights %>%
         filter(!is.na(ArrDelay))
 
 
-temp1
+head(temp1)
+
+
+" ----------- OUTPUT -----------
+ TaxiIn TaxiOut Cancelled CancellationCode Diverted
+1      7      13         0                         0
+2      6       9         0                         0
+3      5      17         0                         0
+4      9      22         0                         0
+5      9       9         0                         0
+6      6      13         0                         0
+"
 
 "
 
@@ -223,4 +234,12 @@ temp1 %>%
     latest=max(ArrDelay),
     sd=sd(ArrDelay))
 
-    
+" ------------- OUTPUT-----------------
+ earliest  average latest       sd
+1      -70 7.094334    978 30.70852
+"
+
+#### Home Work #####
+"
+
+"
