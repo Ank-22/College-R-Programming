@@ -99,3 +99,14 @@ dfc <- filter(hflights,Cancelled==1 & !is.na(DepDelay))%>%
 head(dfc)
 
 tail(dfc)
+
+# To add multiple conditions you can use, Also instead of &
+
+dfc <- hflights %>%
+        filter(hflights,Cancelled==1, !is.na(DepDelay))%>%
+        select(Cancelled,DepDelay)%>%
+        arrange(DepDelay)
+
+ head(dfc) 
+
+ 
