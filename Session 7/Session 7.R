@@ -92,4 +92,10 @@ is.na(x)
 !is.na(x)
 #removing the NA's
 
-dfc <- 
+dfc <- filter(hflights,Cancelled==1 & !is.na(DepDelay))%>%
+        select(Cancelled,DepDelay)%>%
+        arrange(DepDelay)
+
+head(dfc)
+
+tail(dfc)
