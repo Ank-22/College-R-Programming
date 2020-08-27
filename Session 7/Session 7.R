@@ -93,7 +93,7 @@ is.na(x)
 #removing the NA's
 
 dfc <- filter(hflights,Cancelled==1 & !is.na(DepDelay))%>%
-        select(Cancelled,DepDelay)%>%
+        select(Cancelled,DepDelay,CancellationCode)%>%
         arrange(DepDelay)
 
 head(dfc)
@@ -103,10 +103,51 @@ tail(dfc)
 # To add multiple conditions you can use, Also instead of &
 
 dfc <- hflights %>%
-        filter(hflights,Cancelled==1, !is.na(DepDelay))%>%
-        select(Cancelled,DepDelay)%>%
+        filter(hflights,Cancelled==1 , !is.na(DepDelay))%>%
+        select(Cancelled,DepDelay,CancellationCode)%>%
         arrange(DepDelay)
 
- head(dfc) 
+head(dfc) 
+names(dfc)
 
- 
+ # Now Arrange dfc rows by Cancellation code
+head(dfc$CancellationCode)
+
+dfc %>%
+    arrange(CancellationCode)%>%
+    select(cancelled,DepDelay,CancellationCode)
+    View()
+
+
+# Arrange dfc by UniqueCarrieas And Depdelay
+
+dfc %>%
+    arrange(UniqueCarrier)%>%
+    select(Cancelled,DepDelay,UniqueCarrier) %>%
+    View()
+
+
+#--------------------- Summarise dplyr command
+"
+Like mutate function summarise also creates a new variable, but a new dataset.
+
+To apply aggregate functions like min, max etc on a group - it returns a single value for each group
+or for entire dataset
+
+Aggregate function in dplyr
+min(x) - minimum value of vector x.
+max(x) - maximum value of vector x.
+mean(x) - mean value of vector x.
+median(x) - median value of vector x.
+quantile(x, p) - pth quantile of vector x.
+sd(x) - standard deviation of vector x.
+var(x) - variance of vector x.
+IQR(x) - Inter Quartile Range (IQR) of vector x.
+diff(range(x)) - total range of vector x
+"
+
+# Get the Shortest distance flown and the lomgest distance flown in hflights dataset
+
+names(hflights)
+
+"Distance:distance of flight, in miles"
