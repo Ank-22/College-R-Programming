@@ -21,3 +21,7 @@ library(ggplot2)
 library(dplyr)
 
 # Now read in the data and explore the dataset
+
+
+comics =read.csv("Session 8/comics.csv")
+
