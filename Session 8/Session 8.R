@@ -95,3 +95,18 @@ table(comics$gender)
 levels(comics$gender)
 
 
+#-------------Contingency Table-------------#
+
+"
+Frequency tabel of two facto variables is called contingency table
+"
+table(comics$align,comics$gender)
+View(table(comics$align,comics$gender))
+
+"
+                   Female Male Other
+  Bad                  1573 7561    32
+  Good                 2490 4809    17
+  Neutral               836 1799    17
+  Reformed Criminals      1    2     0
+"
