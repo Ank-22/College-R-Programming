@@ -69,3 +69,29 @@ unique(comics$publisher)
 unique(comics$align)
 
 summary(comics$align)
+
+table(comics$align)
+
+"
+Notice that NAs are not considered as a value and Reformed criminals are very very few compared to otheres align value
+"
+
+# check the levels of the factor align
+levels(comics$align)
+
+"
+Here also we notice that NAs are not considered as a level
+"
+
+# similarly explore the factor gender 
+str(comics$gender)
+
+unique(comics$gender)
+
+summary(comics$gender)
+
+table(comics$gender)
+
+levels(comics$gender)
+
+
