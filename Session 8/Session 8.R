@@ -162,3 +162,9 @@ ggplot(comics,aes(x=align, fill="red"))+geom_bar()
 ggplot(comics,aes(x=align, fill=gender))+geom_bar()
 
 ggplot(comics,aes(x=align, fill=gender))+geom_bar(position="dodge")
+
+
+
+# Add the below last line of code and see ho it changes the graph
+
+ggplot(comics,aes(x=align, fill=gender))+geom_bar(position="dodge")+theme(axis.text.x=element_text(angle=90))
