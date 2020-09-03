@@ -141,3 +141,22 @@ comics=comics%>%
 
 table(comics$align)
 
+table(comics$align,comics$gender)
+
+"
+As we can see from both the freq table of aling and contingency table that
+Reformed Criminals is no longer a factor level
+"
+
+#----------------------Visualizations using ggplot----------------------#
+"
+Now, lets start with graphs
+for now we'll just create graphs and try to understand them later that is which graph to when
+"
+
+# create a side by side bar chart for align
+ggplot(comics,aes(x=align))+geom_bar()
+ggplot(comics,aes(x=align, col="red"))+geom_bar()
+ggplot(comics,aes(x=align, fill="red"))+geom_bar()
+
+ggplot(comics,aes(x=align, fill=gender))+geom_bar()
