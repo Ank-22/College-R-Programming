@@ -160,3 +160,5 @@ ggplot(comics,aes(x=align, col="red"))+geom_bar()
 ggplot(comics,aes(x=align, fill="red"))+geom_bar()
 
 ggplot(comics,aes(x=align, fill=gender))+geom_bar()
+
+ggplot(comics,aes(x=align, fill=gender))+geom_bar(position="dodge")
