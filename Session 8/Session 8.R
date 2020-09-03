@@ -110,3 +110,34 @@ View(table(comics$align,comics$gender))
   Neutral               836 1799    17
   Reformed Criminals      1    2     0
 "
+
+"
+We observe that Reformed Criminals is neglible for the analysis compared 
+to other alignments,so we can remove them RC and drop it as a level
+"
+
+
+#-----------------------Dropping Levels-----------------------# 
+"
+Since RC are negligible we can remove them from our analyisis
+Removing a level a factore variable is called dropping a level
+
+To drop a level you have to frist make the count zero for that factor value
+"
+
+# filter out the roes with align not equal to RC
+
+comics=comics%>%
+        filter(align !='Reformed Criminals')
+
+dim(comics)
+str(comics$align)
+levels(comics$align)
+table(comics$align)
+
+comics=comics%>%
+        filter(align !='Reformed Criminals')%>%
+        droplevels()
+
+table(comics$align)
+
