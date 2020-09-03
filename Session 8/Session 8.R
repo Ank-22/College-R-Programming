@@ -61,5 +61,11 @@ $ appearances  <int> 4043, 3360, 3061, 2961, 2258, 2255, 2072, 2017, 1955, ...
 $ first_appear <fct> Aug-62, Mar-41, Oct-74, Mar-63, Nov-50, Nov-61, Nov-61...
 $ publisher    <fct> marvel, marvel, marvel, marvel, marvel, marvel, marvel...
 '
+dim(comics)
+View(head(comics,100))
+str(comics$align)
+str(comics$publisher)
+unique(comics$publisher)
+unique(comics$align)
 
-
+summary(comics$align)
