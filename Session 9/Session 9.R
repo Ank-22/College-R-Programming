@@ -39,3 +39,22 @@ ggplot(comics,aes(x=id, fill = id))+geom_bar()+ facet_wrap(~ align)
 
 car = read.csv("Session 9/cars04.csv" , stringsAsFactors=TRUE)
 
+glimpse(car)
+names(car)
+View(head(car))
+str(car)
+unique(car$name)
+
+"
+Dotplot
+Most common way to plot numerical data is dotplot
+where each case is plotted as a dot on the x-axis
+"
+
+str(car$weight)
+
+table(car$weight)
+
+ggplot(car,aes(x=weight))+geom_dotplot(dotsize=0.22)
+
+
