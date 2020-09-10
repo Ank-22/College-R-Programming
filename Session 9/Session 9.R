@@ -2,8 +2,8 @@ library(readr)
 library(ggplot2)
 library(dplyr)
 
-dataset_1 = read.csv("Session 9/cars04.csv" , stringsAsFactors=TRUE)
-#Last Session
+
+#Last Session resume 
 comics =read.csv("Session 8/comics.csv" , stringsAsFactors=TRUE)
 comics=comics%>%
         filter(align !='Reformed Criminals')
@@ -23,5 +23,19 @@ table(comics$align,comics$gender)
 
 ggplot(comics,aes(x=align, fill=gender))+geom_bar(position="dodge")+theme(axis.text.x=element_text(angle=90))
 
-
 ggplot(comics,aes(x=align, fill = align))+geom_bar()+ facet_wrap(~ gender)
+
+str(comics$id)
+levels(comics$id)
+table(comics$id)
+comics=comics%>%
+        filter(id !='Unknown')%>%
+        droplevels()
+table(comics$id)
+ggplot(comics,aes(x=id, fill = id))+geom_bar()+ facet_wrap(~ gender)
+ggplot(comics,aes(x=id, fill = id))+geom_bar()+ facet_wrap(~ align)
+
+## NEW data set 
+
+car = read.csv("Session 9/cars04.csv" , stringsAsFactors=TRUE)
+
