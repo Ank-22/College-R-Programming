@@ -624,3 +624,29 @@ suv=car%>%
   17.00   25.00   27.00   27.95   30.00   66.00      13
 "
 
+### Start of session 10
+
+"
+Plot a histrogram of city_mgp faceted by
+"
+
+str(car$city_mpg)
+
+str(car$suv)
+ggplot(car,aes(x=city_mpg))+geom_histogram()+facet_wrap(~suv)
+ggplot(car,aes(x=city_mpg,fill=suv))+geom_histogram()
+
+ggplot(car,aes(x=hwy_mpg,fill=suv))+geom_histogram()+facet_wrap(~suv)
+ggplot(car,aes(x=hwy_mpg,fill=suv))+geom_histogram()
+
+View(head(car,100))
+ggplot(car,aes(x=hwy_mpg,fill=suv))+geom_histogram()+facet_wrap(~pickup)
+ggplot(car,aes(x=hwy_mpg,fill=pickup))+geom_histogram()
+
+str(car$eng_size)
+
+NonPickupCar =car%>%
+        filter(eng_size <2.0)
+
+NonPickupCar
+ggplot(NonPickupCar,aes(x=hwy_mpg,fill=sports_car))+geom_histogram()
