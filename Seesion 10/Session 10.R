@@ -647,6 +647,14 @@ str(car$eng_size)
 
 NonPickupCar =car%>%
         filter(eng_size <2.0)
-
+dim(NonPickupCar)
+dim(car)
+View(NonPickupCar)
 NonPickupCar
-ggplot(NonPickupCar,aes(x=hwy_mpg,fill=sports_car))+geom_histogram()
+
+## ====== Conditional Histrogram ======= ##
+ggplot(NonPickupCar,aes(x=hwy_mpg,fill=sports_car))+geom_histogram(binwidth=5)
+
+
+## ====== Conditional Desnsity Plot ======= ##
+ggplot(NonPickupCar,aes(x=hwy_mpg))+geom_density()
