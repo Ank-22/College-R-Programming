@@ -507,3 +507,120 @@ $ width       <int> 66, 66, 69, 68, 69, 67, 67, 67, 67, 67, 67, 67, 67, 68,...
 >
 "
 
+### Session 9 Recap:
+
+tr(car$weight)
+
+table(car$weight)
+
+ggplot(car,aes(x=weight))+geom_dotplot(dotsize=0.22)
+
+"
+Histogram
+"
+
+ggplot(data=car,aes(x=weight))+geom_histogram()
+
+"
+Density plot
+"
+ggplot(car,aes(x=weight))+geom_density()
+
+"
+Boxplot
+"
+ggplot(car, aes(x=1,y=weight))+geom_boxplot()
+
+ggplot(car, aes(x=1,y=weight))+geom_boxplot()+coord_flip()
+
+summary(car$weight)
+
+# Lets explore the highway mpg
+
+str(car$hwy_mpg)
+
+summary(car$hwy_mpg)
+ggplot(car,aes(x=hwy_mpg))+geom_histogram()
+ggplot(car,aes(x=hwy_mpg))+geom_density()
+
+ggplot(car,aes(x=1,y=hwy_mpg))+geom_boxplot()
+
+ggplot(car,aes(x=hwy_mpg))+geom_histogram()+facet_wrap(~pickup)
+
+ggplot(car,aes(x=hwy_mpg))+geom_boxplot()+facet_wrap(~pickup)
+
+pickcar=car%>%
+        filter(pickup ==TRUE)
+
+summary(pickcar$hwy_mpg)        
+
+nonpickcar=car%>%
+        filter(pickup !=TRUE)
+
+summary(nonpickcar$hwy_mpg)
+"
+summary(car$weigth)
+Length  Class   Mode
+     0   NULL   NULL
+> summary(car$weight)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+   1850    3102    3474    3577    3974    7190       2
+> str(car$hwy_mpg)
+ int [1:428] 34 34 37 37 37 36 36 33 36 33 ...
+> summary(car$hwy_mpg)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+  12.00   24.00   26.00   26.91   29.00   66.00      14
+> summary(pickcar$hwy_mpg)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+  17.00   18.50   20.00   21.17   22.50   29.00       1
+> nonpickcar=car%>%
++         filter(pickup !=TRUE)
+>
+> summary(nonpickcar$hwy_mpg)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+  12.00   24.00   26.00   27.24   30.00   66.00      13
+>
+"  
+ # So using facet_wrap we can get distribution for the categories without having a filter
+
+str(car$city_mpg)
+
+summary(car$city_mpg)
+ggplot(car,aes(x=city_mpg))+geom_histogram()
+ggplot(car,aes(x=city_mpg))+geom_density()
+
+ggplot(car,aes(x=1,y=city_mpg))+geom_boxplot()
+
+ggplot(car,aes(x=city_mpg))+geom_histogram()+facet_wrap(~suv)
+
+ggplot(car,aes(x=city_mpg))+geom_boxplot()+facet_wrap(~suv)
+
+suv=car%>%
+        filter(suv ==TRUE)
+
+summary(suv$hwy_mpg)        
+
+Nonsuv=car%>%
+        filter(suv !=TRUE)
+
+summary(Nonsuv$hwy_mpg)
+
+"
+summary(car$city_mpg)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+  10.00   17.00   19.00   20.09   21.00   60.00      14
+suv=car%>%
++         filter(suv ==TRUE)
+>
+> summary(suv$hwy_mpg)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+  12.00   18.50   21.00   20.63   22.50   27.00       1
+>
+> Nonsuv=car%>%
++         filter(suv !=TRUE)
+>
+> summary(Nonsuv$hwy_mpg)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's
+  17.00   25.00   27.00   27.95   30.00   66.00      13
+"
+
