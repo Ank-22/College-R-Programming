@@ -708,4 +708,12 @@ CarMostNcyl2 <- filter(car,ncyl %in% c(4,6,8))
 dim(CarMostNcyl2)
 
 
+ggplot(CarMostNcyl,aes(x=1,y=city_mpg))+geom_boxplot()
 
+summary(CarMostNcyl$city_mpg)
+
+## Create Side by side boxplot for city_mpg wwrt ncyl
+
+ggplot(CarMostNcyl,aes(x= as.factor(ncyl) ,y=city_mpg))+geom_boxplot()
+
+ggplot(CarMostNcyl,aes(x=city_mpg, fill= as.factor(ncyl)))+geom_density()
