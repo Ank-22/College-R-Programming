@@ -672,3 +672,40 @@ ggplot(car,aes(x=horsepwr))+geom_histogram(bw=3)+ggtitle("Distribution of horsep
 
 ggplot(car,aes(x=horsepwr))+geom_histogram(bw=30)+ggtitle("Distribution of horsepower with bandwidth of 30")
 ggplot(car,aes(x=horsepwr))+geom_histogram(bw=60)+ggtitle("Distribution of horsepower with bandwidth of 60")
+
+
+"
+Plot the hsitrogram for horsepower fot cars with mrp less than 25000
+
+"
+
+glimpse(car)
+
+CarLessThanTT = car%>%
+                filter(msrp< 25000)
+
+glimpse(CarLessThanTT)
+dim(CarLessThanTT)
+ggplot(CarLessThanTT,aes(x=horsepwr))+geom_histogram()+ggtitle("Distribution of horsepower with MRP Less Than 25000")
+summary(CarLessThanTT$horsepwr)
+ggplot(CarLessThanTT,aes(x=horsepwr))+geom_histogram()+xlim(c(90,550))+ggtitle("Distribution of horsepower with MRP Less Than 25000")
+
+str(car$ncyl)
+
+unique(car$ncyl)
+
+table(car$ncyl)
+
+
+CarMostNcyl = car%>%
+                filter(ncyl == 4 | ncyl == 6 | ncyl==8)  
+
+dim(CarMostNcyl)
+dim(car)
+
+CarMostNcyl2 <- filter(car,ncyl %in% c(4,6,8))  
+
+dim(CarMostNcyl2)
+
+
+
