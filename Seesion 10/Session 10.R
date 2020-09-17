@@ -658,3 +658,17 @@ ggplot(NonPickupCar,aes(x=hwy_mpg,fill=sports_car))+geom_histogram(binwidth=5)
 
 ## ====== Conditional Desnsity Plot ======= ##
 ggplot(NonPickupCar,aes(x=hwy_mpg))+geom_density()
+ggplot(NonPickupCar,aes(x=hwy_mpg))+geom_density(bw=5)
+
+
+
+str(car$horsepwr)
+summary(car$horsepwr)
+ggplot(car,aes(x=horsepwr,fill=suv))+geom_histogram(binwidth=5)
+ggplot(car,aes(x=horsepwr,fill=suv))+geom_histogram()
+ggplot(car,aes(x=horsepwr,fill=pickup))+geom_histogram()
+ggplot(car,aes(x=horsepwr,fill=sports_car))+geom_histogram()+ggtitle("Distribution of horsepower")
+ggplot(car,aes(x=horsepwr))+geom_histogram(bw=3)+ggtitle("Distribution of horsepower with bandwidth of 3")
+
+ggplot(car,aes(x=horsepwr))+geom_histogram(bw=30)+ggtitle("Distribution of horsepower with bandwidth of 30")
+ggplot(car,aes(x=horsepwr))+geom_histogram(bw=60)+ggtitle("Distribution of horsepower with bandwidth of 60")
