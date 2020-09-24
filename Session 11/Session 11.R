@@ -281,3 +281,16 @@ gap2007 %>%
 gap2007 %>%
     ggplot(aes( x= lifeExp))+
     geom_density()+facet_grid(~continent)
+
+"
+Find the mean and sd life expectancy for americans
+"
+gap2007 %>%
+    filter(continent=="Americas") %>%
+    summarise(mean(lifeExp),sd(lifeExp),IQR(lifeExp),n())
+"
+A tibble: 1 x 4
+  `mean(lifeExp)` `sd(lifeExp)` `IQR(lifeExp)` `n()`
+            <dbl>         <dbl>          <dbl> <int>
+1            73.6          4.44           4.63    25
+"
