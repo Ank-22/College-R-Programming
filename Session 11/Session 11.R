@@ -259,4 +259,25 @@ gap2007 %>%
     geom_density()
 
 
+"
+life expectancy is highest of oceanic contries
+"
 
+# For clarity add transparency
+gap2007 %>%
+    ggplot(aes(fill=continent, x= lifeExp))+
+    geom_density(alpha =0.3)
+
+"
+Insted of using fill 
+- let's split the graph wrt to continent
+- using facet_wrap and facet_grid
+- what is the difference between facet_wrao and facet_gird
+"    
+gap2007 %>%
+    ggplot(aes( x= lifeExp))+
+    geom_density()+facet_wrap(~continent)
+
+gap2007 %>%
+    ggplot(aes( x= lifeExp))+
+    geom_density()+facet_grid(~continent)
