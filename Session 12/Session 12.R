@@ -1,110 +1,128 @@
-install.packages("gapminder")
-library(gapminder)
-library(dplyr)
+library(readr)
 library(ggplot2)
+library(dplyr)
+library(gapminder)
 
 glimpse(gapminder)
 
 View(gapminder)
-"
-library(ggplot2)
-> glimpse(gapminder)
-Rows: 1,704
-Columns: 6
-$ country   <fct> Afghanistan, Afghanistan, Afghanistan, Afghanistan, Afgha...        
-$ continent <fct> Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asia, Asi...        
-$ year      <int> 1952, 1957, 1962, 1967, 1972, 1977, 1982, 1987, 1992, 199...        
-$ lifeExp   <dbl> 28.801, 30.332, 31.997, 34.020, 36.088, 38.438, 39.854, 4...        
-$ pop       <int> 8425333, 9240934, 10267083, 11537966, 13079460, 14880372,...        
-$ gdpPercap <dbl> 779.4453, 820.8530, 853.1007, 836.1971, 739.9811, 786.113...
-"
-comics=read.csv("B:/Study/Academics/MIT College/4th Year/Sem 7/R programing/R-Prpgramming/Session 8/comics.csv",stringsAsFactors = TRUE)
 
-str(comics)
+#See the data dictionary
 
-dim(comics)
+?gapminder
 
-######################################## TODAY's SESSION
+#Find the mean and IQR for entire population
 
-ggplot(common_cyl,aes(x=city_mpg))+
+str(gapminder$pop)
+
+gap2007 %>%
+  summarise(mean(pop), IQR(pop), median(pop))
+
+#Density plot for population
+
+ggplot(gap2007, aes(x= pop)) +
   geom_density()
 
-ggplot(common_cyl,aes(x=city_mpg,fill=as.factor(ncyl)))+
-  geom_Density()
+#or
 
+gap2007 %>% ggplot(aes(x= pop)) +
+  geom_density()
 
-ggplot(common_cyl,aes(x=city_mpg,fill=as.factor(ncyl)))+
-  geom_Density(aplha=0.3)
+"
+Numbers are too large, so we use log
+Mutate a new column called log_pop that is the natural log of the population
+and save it back into gap2007.
 
-str(cars$width)
+"
 
-head(cars$width)
+gap2007 = gap2007 %>%
+  mutate(pop_log = log(pop))
 
-head(cars)
+gap2007
 
-# boxplot distribution
+names(gap2007)
 
+#Create a density plot of the new variable
 
-cars %>% ggplot(aes(x=1,y=width))+
+gap2007 %>% ggplot(aes(x= pop_log)) +
+  geom_density()
+
+"Create a new subset gap_asia
+- and add a new logical variable is_outlier, with TRUE for lifeExp less than 50"
+
+gap_asia = gap2007 %>%
+  filter(continent == 'Asia') %>%
+  mutate(is_outlier = lifeExp < 50)
+
+names(gap_asia)
+
+head(gap_asia)
+
+#Plot boxplot for lifeExp
+
+gap_asia %>%
+  ggplot(aes(x = 1, y = lifeExp)) +
   geom_boxplot()
 
-# density plot
+#Now plot the boxplot for lifeExp without outliers
 
-cars %>% ggplot(aes(x=1,y=width))+
-  geom_density()
+gap_asia %>%
+  filter(!is_outlier) %>%
+  ggplot(aes(x = 1, y = lifeExp)) +
+  geom_boxplot()
 
-# Using facet_grid for mutlivariate distribution
-
-names(cars)
-
-?cars
-
-str(cars$msrp)
-str(cars$pickup)
-str(cars$rear_wheel)
+gap_asia %>%
+  filter(!is_outlier) %>%
+  summarise(median(lifeExp), sd(lifeExp), IQR(lifeExp), n())
 
 
-ggplot(cars,aes(x=msrp))+
-  geom_density()+
-  facet_grid(pickup~rear_wheel)
+# For each continent find sd, median, IQR and count for lifeExp
 
+gap2007 %>%
+  group_by(continent) %>%
+  summarise(median(lifeExp), sd(lifeExp), IQR(lifeExp), n())
 
-# Readable format
-ggplot(cars,aes(x=msrp))+
-  geom_density()+
-  facet_grid(pickup~rear_wheel,labeller=label_both)
+#Compute sd for lifeExp in Americas
 
+gap2007 %>%
+  filter(continent == 'Americas') %>%
+  summarise(median(lifeExp), sd(lifeExp), IQR(lifeExp), n())
 
-ggplot(cars,aes(x=msrp))+
-  geom_density()+
-  facet_grid(pickup~rear_wheel,labeller=label_both)+
-  ggtitle("MSRP for cars wrt rear wheel and pickup or not")
+#Compute IQR for pop
 
+gap2007 %>%
+  summarise(median(pop), IQR(pop))
 
-table(cars$rear_wheel,cars$pickup)
+#---------------life dataset--------------------------#
 
-table(rear_Wheel=cars$rear_wheel,pickup=cars$pickup)
+life = read.csv("C:/Users/HP/Downloads/life_exp_raw.csv")
 
+glimpse(life)
 
-common_cyl%>% ggplot(aes(x=hwy_mpg))+
-  geom_histogram()+
-  facet_grid(ncyl~suv,labeller=label_both)+
-  ggtitle("Mileage by suv and ncyl")
+View(life)
 
+str(life)
 
-str(gapminder$year)
+names(life)
 
-length((unique(gapmind$year)))
+str(life$State)
 
-gap2007=gapminder%>%
-  filter(year==2007)
+unique(life$State)
 
-glimpse(gap2007)
+#Create a new variable west_coast
 
-dim(gap2007)
+"Set the value as TRUE for states California, Oregon, Washington"
 
+life = life %>%
+  mutate(west_coast = State %in%
+           c("California", "Oregon", "Washington"))
 
-######################### New Session #################
+names(life)
 
-glimpse(gapminder)
-View(gapminder)
+head(life$west_coast)
+
+View(life)
+
+str(life$west_coast)
+
+unique(life$west_coast)
