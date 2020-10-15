@@ -80,7 +80,7 @@ girls_last_letter <- str_sub(girls_names,-1,-1)
 
 table(girls_last_letter)
 
-"
+'''
  # OUTPUT #
  > str_sub(c("Bruce","Wayne"),1,4)
 [1] "Bruc" "Wayn"
@@ -124,4 +124,97 @@ girls_last_letter
 6632   20   13   81 3114    8   21 1942 1581   12   31  450  115 2608  105    3       
    q    r    s    t    u    v    w    x    y    z
    2  291  326  208   59    6   17   50 1435   51
+'''
 "
+str_detect() -- retrun True or Flase
+str_subset() - returms string that contian the pattern
+str_count()- number of times the pattern occured in the string
+"
+
+pizzas =c("cheese","pepperoni","sausage and green peppers")
+
+str_detect(string= pizzas, pattern="pepper")
+str_subset(string= pizzas, pattern="pepper")
+str_count(string= pizzas, pattern="pepper")
+
+'''
+### OUTPUT ###
+str_detect(string= pizzas, pattern="pepper")
+[1] FALSE  TRUE  TRUE
+> str_subset(string= pizzas, pattern="pepper")
+[1] "pepperoni"                 "sausage and green peppers"
+> str_count(string= pizzas, pattern="pepper")
+[1] 0 1 1
+>
+'''
+
+# Look for pettern "zz" in boy_name and sore the result in contains_zz
+
+contains_zz <-str_detect(boy_names,"zz")
+str(contains_zz)
+# How many boy name contain zz
+sum(str_count(boy_names,"zz"))
+# Which are the boy names contaning zz
+boy_names[contains_zz]
+
+# Find Girls Names Containing zz
+str_subset(girls_names,"zz")
+
+# Find girl_names that contain "u"
+
+starts_U <- str_subset(girls_names,"U")
+starts_U
+
+# girl name starts with U and contains Z
+str_subset(starts_U,"z")
+
+'''
+#### OUTPUT ####
+> pizzas =c("cheese","pepperoni","sausage and green peppers")
+>
+> str_detect(string= pizzas, pattern="pepper")
+[1] FALSE  TRUE  TRUE
+> pizzas =c("cheese","pepperoni","sausage and green peppers")
+>
+> str_detect(string= pizzas, pattern="pepper")
+[1] FALSE  TRUE  TRUE
+> pizzas =c("cheese","pepperoni","sausage and green peppers")
+>
+> str_detect(string= pizzas, pattern="pepper")
+[1] FALSE  TRUE  TRUE
+> str_subset(string= pizzas, pattern="pepper")
+[1] "pepperoni"                 "sausage and green peppers"
+> str_count(string= pizzas, pattern="pepper")
+[1] 0 1 1
+> contains_zz <-str_detect(boy_names,"zz")
+> str(contains_zz)
+ logi [1:14047] FALSE FALSE FALSE FALSE FALSE FALSE ...
+> sum(str_count(boy_names,"zz"))
+[1] 16
+> boy_names[contains_zz]
+ [1] "Uzziah"    "Ozzie"     "Ozzy"      "Jazz"      "Uzziel"    "Chazz"
+ [7] "Izzy"      "Azzam"     "Izzac"     "Izzak"     "Fabrizzio" "Jazziel"
+[13] "Azzan"     "Izzaiah"   "Muizz"     "Yazziel"
+> # Find Girls Names Containing zz
+> str_subset(girls_names,"zz")
+ [1] "Izzabella"  "Jazzlyn"    "Jazzlynn"   "Lizzie"     "Izzy"
+ [6] "Lizzy"      "Mazzy"      "Izzabelle"  "Jazzmine"   "Jazzmyn"
+[11] "Jazzelle"   "Jazzmin"    "Izzah"      "Jazzalyn"   "Jazzmyne"
+[16] "Izzabell"   "Jazz"       "Mazzie"     "Alyzza"     "Izza"
+[21] "Izzie"      "Jazzlene"   "Lizzeth"    "Jazzalynn"  "Jazzy"
+[26] "Alizzon"    "Elizzabeth" "Jazzilyn"   "Jazzlynne"  "Jizzelle"
+[31] "Izzabel"    "Izzabellah" "Izzibella"  "Jazzabella" "Jazzabelle"
+[36] "Jazzel"     "Jazzie"     "Jazzlin"    "Jazzlyne"   "Aizza"
+[41] "Brizza"     "Ezzah"      "Fizza"      "Izzybella"  "Rozzlyn"
+> # Find girl_names that contain "u"
+>
+> starts_U <- str_subset(girls_names,"U")
+> starts_U
+ [1] "Unique"  "Uma"     "Unknown" "Una"     "Uriah"   "Ursula"  "Unity"
+ [8] "Umaiza"  "Urvi"    "Ulyana"  "Ula"     "Udy"     "Urwa"    "Ulani"
+[15] "Umaima"  "Umme"    "Ugochi"  "Ulyssa"  "Umika"   "Uriyah"  "Ubah"
+[22] "Umaira"  "Umi"     "Ume"     "Urenna"  "Uriel"   "Urijah"  "Uyen"
+> # girl name starts with U and contains Z
+> str_subset(starts_U,"z")
+[1] "Umaiza"
+'''
