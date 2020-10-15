@@ -218,3 +218,18 @@ str_subset(starts_U,"z")
 > str_subset(starts_U,"z")
 [1] "Umaiza"
 '''
+
+# Ho many 'e's occur in each order
+
+str_count(pizzas,"e")
+
+str_count(pizzas,fixed("e"))
+
+# Count Occurrences of "a" in girl_names
+
+no_a<-str_count(girls_names,"a")
+head(no_a)
+
+
+no_A<-str_count(girls_names,"A")
+head(no_A)
