@@ -192,3 +192,31 @@ ccc <-tm_map(ccc, removeWords, c(stopwords("en"),"coffe","mug"))
 ccc <-tm_map(ccc, stripWhitespace)
 
 ccc[[15]][1]
+
+'''
+"heatherwhaley 2 joke takes 2 hands hold hot coffeethen read headline dontdrinknshoot"
+'''
+
+ccc <-tm_map(ccc, removeNumbers)
+
+ccc[[15]][1]
+
+
+#----------- Function for preprocessing pipelne ----------#
+"
+Since these pre-processing steps are almost always required for text minig,
+let's write a function clean_corpus() to do it all at once
+"
+
+
+ccc <- function(corpus){
+    ccc <-tm_map(cct, removePunctuation)
+    ccc <-tm_map(ccc, content_transformer(tolower))
+    ccc <-tm_map(ccc, removeWords, c(stopwords("en"),"coffe","mug"))
+    ccc <-tm_map(ccc, stripWhitespace)
+return(ccc)
+}
+
+cc2 =  ccc(cct)
+
+cc2[[15]][1]
