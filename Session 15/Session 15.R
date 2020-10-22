@@ -220,3 +220,16 @@ return(ccc)
 cc2 =  ccc(cct)
 
 cc2[[15]][1]
+
+
+
+# ------------ TDM and DTM : Frequency of the terms ---------
+
+"
+After cleaning the corpus we have to create a frequency table of word
+
+TDM - is the term document matrix,
+terms are in rows and document number is column and each cell is frequncy of the term
+
+DTM - document term matrix is the traspose of TDM
+"
